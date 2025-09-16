@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.CenárioVivo" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Cores primárias, secundárias, etc. como você já tem -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- MODIFICADO PARA EDGE-TO-EDGE:
+             Torna a status bar transparente para que o conteúdo possa ser desenhado por baixo.
+             O padding será adicionado programaticamente via WindowInsets. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <!-- Opcional: Torna a navigation bar transparente também, se você quiser edge-to-edge completo.
+             O padding para a navigation bar também será tratado pelo WindowInsetsListener. -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+
+        <!-- Opcional, mas recomendado para APIs 29+ para melhor controle de contraste
+             quando as barras são transparentes ou translúcidas. -->
+        <item name="android:enforceStatusBarContrast" tools:targetApi="q">false</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
+    </style>
+</resources>
