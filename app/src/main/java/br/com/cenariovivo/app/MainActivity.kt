@@ -1,11 +1,16 @@
 package br.com.cenariovivo.app
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Build // Adicione esta importação
 import android.os.Bundle
+import android.util.Log // <--- ADICIONE ESTA LINHA
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout // Importe ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -13,9 +18,38 @@ import androidx.core.view.WindowInsetsControllerCompat // Adicione esta importa�
 import androidx.core.view.updatePadding // Importe esta função de extensão
 
 class MainActivity : AppCompatActivity() {
+    // ... dentro da classe MainActivity
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+            if (isGranted) {
+                Log.d("MainActivity", "Notification permission granted")
+            } else {
+                Log.d("MainActivity", "Notification permission denied")
+                // Opcional: Informe ao usuário que ele não receberá notificações
+            }
+        }
+
+    private fun askNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // TIRAMISU é API 33
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
+                PackageManager.PERMISSION_GRANTED
+            ) {
+                // Permissão já concedida
+            } else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+                // Opcional: Mostrar uma UI explicando por que você precisa da permissão
+                // e então chamar requestPermissionLauncher.launch(...)
+                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS) // Lança mesmo assim por agora
+            } else {
+                // Solicitar a permissão diretamente
+                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        askNotificationPermission()
         // 1. Habilitar Edge-to-Edge ANTES de setContentView
         // Isso permite que o conteúdo da sua activity seja desenhado sob as barras do sistema.
         WindowCompat.setDecorFitsSystemWindows(window, false)

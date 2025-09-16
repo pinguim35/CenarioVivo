@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CenárioVivo</string>
+    <string name="default_notification_channel_id" translatable="false">cenariovivo_channel</string>
+    <string name="default_notification_channel_name">Novidades CenárioVivo</string>
 </resources>

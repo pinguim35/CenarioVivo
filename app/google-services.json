@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "694011538074",
+    "project_id": "cenariovivo-65162",
+    "storage_bucket": "cenariovivo-65162.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694011538074:android:23e73de9db6fe847accd23",
+        "android_client_info": {
+          "package_name": "br.com.cenariovivo.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_KGXUhyMQqHZ-rBxCN1C0GA9Ubwed7oc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

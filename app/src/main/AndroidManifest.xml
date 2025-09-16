@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <application
         android:allowBackup="true"
@@ -23,6 +24,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- (Opcional, mas recomendado) Metadados para o ícone e cor padrão da notificação -->
+        <!-- O ícone DEVE ser branco e transparente. Use o Image Asset Studio para criar -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_notification" />
+        <!-- Cor para aplicar ao ícone (se ele for monocromático) -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" /> <!-- Use uma cor do seu app, ex: @color/purple_500 -->
+
+        <!-- Metadados para o canal de notificação padrão (para Android O e superior) -->
+        <!-- Este ID deve corresponder ao que você usará no código para criar o canal -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id"/>
     </application>
 
 </manifest>

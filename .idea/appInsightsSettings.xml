@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="br.com.cenariovivo.app" />
+                  <option name="mobileSdkAppId" value="1:694011538074:android:23e73de9db6fe847accd23" />
+                  <option name="projectId" value="cenariovivo-65162" />
+                  <option name="projectNumber" value="694011538074" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
